@@ -26,6 +26,7 @@ set textwidth=72
 filetype plugin indent on
 set autoindent
 
+set hidden
 au BufRead,BufNewFile *.py,*pyw set ts=8 sts=4 sw=4
 au BufRead,BufNewFile *.py,*pyw set expandtab
 au BufRead,BufNewFile *.py,*pyw set number
@@ -37,3 +38,5 @@ au BufRead,BufNewFile *.py,*pyw match BadWhitespace /^\s\+$/
 au BufRead,BufNewFile *.py,*pyw set foldmethod=indent
 au BufRead,BufNewFile *.py,*pyw set foldlevel=99
 au BufNewFile *.py 0r ~/.vim/skeleton/python.py
+
+let mapleader = ','
