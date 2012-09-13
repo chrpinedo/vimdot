@@ -29,9 +29,11 @@ set autoindent
 set hidden
 au BufRead,BufNewFile *.py,*pyw set ts=8 sts=4 sw=4
 au BufRead,BufNewFile *.py,*pyw set expandtab
-au BufRead,BufNewFile *.py,*pyw set number
 au BufRead,BufNewFile *.py,*pyw set textwidth=79
-au BufRead,BufNewFile *.py,*pyw set colorcolumn=80
+if exists('+colorcolumn')
+    au BufRead,BufNewFile *.py,*pyw set colorcolumn=+1
+endif
+au BufRead,BufNewFile *.py,*pyw set number
 au BufRead,BufNewFile *.py,*pyw highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*pyw match BadWhitespace /^\s\+$/
