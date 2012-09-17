@@ -9,4 +9,4 @@ DocString Paragraph
 
 
 
-# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
+# vim: ts=8 sts=4 sw=4 et

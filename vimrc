@@ -17,28 +17,31 @@ set history=50
 set encoding=utf-8
 set backspace=indent,eol,start
 
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
-set textwidth=72
+set hidden
+let mapleader = ','
 
-filetype plugin indent on
+set ts=4 sts=4 sw=4 noet
+set tw=79
 set autoindent
 
-set hidden
-au BufRead,BufNewFile *.py,*pyw set ts=8 sts=4 sw=4
-au BufRead,BufNewFile *.py,*pyw set expandtab
-au BufRead,BufNewFile *.py,*pyw set textwidth=79
-if exists('+colorcolumn')
-    au BufRead,BufNewFile *.py,*pyw set colorcolumn=+1
-endif
-au BufRead,BufNewFile *.py,*pyw set number
-au BufRead,BufNewFile *.py,*pyw highlight BadWhitespace ctermbg=red guibg=red
-au BufRead,BufNewFile *.py,*pyw match BadWhitespace /^\t\+/
-au BufRead,BufNewFile *.py,*pyw match BadWhitespace /^\s\+$/
-au BufRead,BufNewFile *.py,*pyw set foldmethod=indent
-au BufRead,BufNewFile *.py,*pyw set foldlevel=99
-au BufNewFile *.py 0r ~/.vim/skeleton/python.py
+if has("autocmd")
+	" Enable filetype detection
+	filetype plugin indent on
 
-let mapleader = ','
+	" Consider *.py and *.pyc files python files.
+	autocmd BufNewFile,BufRead *.py,*.pyc setfiletype python
+
+	" Configuration for python files
+	autocmd FileType python setlocal ts=8 sts=4 sw=4 et
+	autocmd FileType python setlocal tw=79
+	if exists('+colorcolumn')
+		autocmd FileType python setlocal colorcolumn=+1
+	endif
+	autocmd FileType python setlocal number
+	autocmd FileType python highlight BadWhitespace ctermbg=red guibg=red
+	autocmd FileType python match BadWhitespace /^\t\+/
+	autocmd FileType python match BadWhitespace /^\s\+$/
+	autocmd FileType python setlocal foldmethod=indent
+	autocmd FileType python setlocal foldlevel=99
+	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
+endif
