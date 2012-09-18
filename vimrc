@@ -17,12 +17,11 @@ set history=50
 set encoding=utf-8
 set backspace=indent,eol,start
 
-set hidden
-let mapleader = ','
-
 set ts=4 sts=4 sw=4 noet
 set tw=79
-set autoindent
+set ai
+
+set hidden
 
 if has("autocmd")
 	" Enable filetype detection
@@ -45,3 +44,9 @@ if has("autocmd")
 	autocmd FileType python setlocal foldlevel=99
 	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
 endif
+
+let mapleader = ','
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
