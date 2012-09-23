@@ -1,11 +1,15 @@
 call pathogen#infect()
 call pathogen#helptags()
 
-set nocompatible
 set modeline
 
-set showmode
-set ruler
+set nocompatible
+set laststatus=2
+set encoding=utf-8
+if (&term =~ "xterm") || (&term =~ "screen")
+	set t_Co=256
+endif
+
 set bg=dark
 syntax on
 
@@ -14,7 +18,6 @@ set incsearch
 set nowrapscan
 
 set history=50
-set encoding=utf-8
 set backspace=indent,eol,start
 
 set ts=4 sts=4 sw=4 noet
