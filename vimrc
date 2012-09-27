@@ -25,12 +25,29 @@ set tw=79
 set ai
 
 set hidden
-
+"
+" Generic Mappings
+"
+let mapleader = ','
+" Map to show invisible characters:
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+" Maps to easily open new files in subdirectories:
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+"
+" Filetype dependant configuration:
+"
 if has("autocmd")
 	" Enable filetype detection
 	filetype plugin indent on
 
-	" Consider *.py and *.pyc files python files.
+	" Consider *.py and *.pyc files python files
 	autocmd BufNewFile,BufRead *.py,*.pyc setfiletype python
 
 	" Configuration for python files
@@ -45,11 +62,7 @@ if has("autocmd")
 	autocmd FileType python match BadWhitespace /^\s\+$/
 	autocmd FileType python setlocal foldmethod=indent
 	autocmd FileType python setlocal foldlevel=99
+	autocmd FileTYpe python setlocal tags=~/.vim/tags/python/python2.7
+	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
 endif
-
-let mapleader = ','
-nmap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
