@@ -20,11 +20,17 @@ set nowrapscan
 set history=50
 set backspace=indent,eol,start
 
+set hidden
+
+"
+" Formating text
+"
 set ts=4 sts=4 sw=4 noet
 set tw=79
 set ai
-
-set hidden
+if executable("par")
+	set formatprg=par\ -w79
+endif
 "
 " Generic Mappings
 "
@@ -62,7 +68,13 @@ if has("autocmd")
 	autocmd FileType python match BadWhitespace /^\s\+$/
 	autocmd FileType python setlocal foldmethod=indent
 	autocmd FileType python setlocal foldlevel=99
-	autocmd FileTYpe python setlocal tags=~/.vim/tags/python/python2.7
+	if filereadable("~/.vim/tags/python/python2.7")
+		autocmd FileTYpe python setlocal tags+=~/.vim/tags/python/python2.7
+	endif
 	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
+
+	" Autoclose preview window of omnicompletion
+	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+	autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
