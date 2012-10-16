@@ -35,6 +35,8 @@ endif
 " Generic Mappings
 "
 let mapleader = ','
+" Map TaskList to ,v to not interfere with Command-T plugin
+map <leader>v <Plug>TaskList
 " Map to show invisible characters:
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
