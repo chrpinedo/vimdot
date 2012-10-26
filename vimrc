@@ -35,8 +35,10 @@ endif
 " Generic Mappings
 "
 let mapleader = ','
-" Map TaskList to ,v to not interfere with Command-T plugin
-map <leader>v <Plug>TaskList
+" Map easy access to vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
+" Map TaskList to ,p (pending) to not interfere with Command-T plugin
+nmap <leader>p <Plug>TaskList
 " Map to show invisible characters:
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
@@ -54,6 +56,9 @@ map <leader>et :tabe %%
 if has("autocmd")
 	" Enable filetype detection
 	filetype plugin indent on
+
+	" Configuration for vimrc file
+	autocmd bufwritepost .vimrc source $MYVIMRC
 
 	" Consider *.py and *.pyc files python files
 	autocmd BufNewFile,BufRead *.py,*.pyc setfiletype python
