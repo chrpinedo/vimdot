@@ -79,6 +79,12 @@ if has("autocmd")
 	endif
 	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
+	
+	" Configuration for latex files
+	autocmd FileType tex	setlocal encoding=utf-8
+	autocmd FileType tex	setlocal ts=8 sts=2 sw=2 et
+	autocmd FileType tex	setlocal tw=79
+	autocmd BufNewFile *.tex 0r ~/.vim/skeleton/latex.tex
 
 	" Autoclose preview window of omnicompletion
 	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
