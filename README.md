@@ -10,11 +10,11 @@ freely if it is found useful.
 Installation
 ------------
 
-Installation on GNU/Linux:
+Installation on GNU/Linux. Caution! it deletes a previous vim configuration.
 
-	[ -d ~/.vim ] && mv ~/.vim ~/.vim.bkp
-	[ -e ~/.vimrc -o -h ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.bkp
-	[ -e ~/.gvimrc -o -h ~/.gvimrc ] && mv ~/.gvimrc ~/.gvimrc.bkp
+	[ -d ~/.vim ] && rm -rf ~/.vim
+	[ -e ~/.vimrc -o -h ~/.vimrc ] && rm ~/.vimrc
+	[ -e ~/.gvimrc -o -h ~/.gvimrc ] && rm ~/.gvimrc
 	git clone git://github.com/chrpinedo/vimdot ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc
 	ln -s ~/.vim/gvimrc ~/.gvimrc
