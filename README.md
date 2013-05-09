@@ -13,8 +13,8 @@ Installation
 Installation on GNU/Linux:
 
 	[ -d ~/.vim ] && mv ~/.vim ~/.vim.bkp
-	[ -f ~/.vimrc -o -e ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.bkp
-	[ -f ~/.gvimrc -o -e ~/.gvimrc ] && mv ~/.gvimrc ~/.gvimrc.bkp
+	[ -e ~/.vimrc -o -h ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.bkp
+	[ -e ~/.gvimrc -o -h ~/.gvimrc ] && mv ~/.gvimrc ~/.gvimrc.bkp
 	git clone git://github.com/chrpinedo/vimdot ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc
 	ln -s ~/.vim/gvimrc ~/.gvimrc
