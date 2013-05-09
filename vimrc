@@ -36,8 +36,6 @@ endif
 let mapleader = ','
 " Map easy access to vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
-" Map TaskList to ,p (pending) to not interfere with Command-T plugin
-nmap <leader>p <Plug>TaskList
 " Map to show invisible characters:
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
@@ -49,6 +47,24 @@ map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
+" Maps to surfing splitted lines
+vmap <c-h> h
+vmap <c-j> gj
+vmap <c-k> gk
+vmap <c-l> l
+vmap <c-p> g$
+vmap <c-u> g0
+nmap <c-h> h
+nmap <c-j> gj
+nmap <c-k> gk
+nmap <c-l> l
+nmap <c-p> g$
+nmap <c-u> g0
+set showbreak=...
+" Maps of plugins
+" Map TaskList to ,p (pending) to not interfere with Command-T plugin
+nmap <leader>p <Plug>TaskList
+
 "
 " Filetype dependant configuration:
 "
