@@ -16,8 +16,8 @@ Installation on GNU/Linux:
 	[ -f ~/.vimrc -o -e ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.bkp
 	[ -f ~/.gvimrc -o -e ~/.gvimrc ] && mv ~/.gvimrc ~/.gvimrc.bkp
 	git clone git://github.com/chrpinedo/vimdot ~/.vim
-	ln -s ~/vim/vimrc ~/.vimrc
-	ln -s ~/vim/gvimrc ~/.gvimrc
+	ln -s ~/.vim/vimrc ~/.vimrc
+	ln -s ~/.vim/gvimrc ~/.gvimrc
 	cd ~/.vim
 	git submodule init
 	git submodule update
