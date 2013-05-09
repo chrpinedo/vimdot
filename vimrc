@@ -62,8 +62,10 @@ nmap <c-p> g$
 nmap <c-u> g0
 set showbreak=...
 " Maps of plugins
-" Map TaskList to ,p (pending) to not interfere with Command-T plugin
+" Map TaskList plugin to ,p (pending) to not interfere with Command-T plugin
 nmap <leader>p <Plug>TaskList
+" Map Gundo plugin
+nnoremap <F5> :GundoToggle<CR>
 
 "
 " Filetype dependant configuration:
