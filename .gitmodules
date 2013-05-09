@@ -1,6 +1,6 @@
 [submodule "bundle/addon-mw-utils"]
 	path = bundle/addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = git://git.wincent.com/command-t.git
@@ -9,7 +9,7 @@
 	url = git://github.com/nvie/vim-flake8.git
 [submodule "bundle/gundo"]
 	path = bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
+	url = git://github.com/sjl/gundo.vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
@@ -22,15 +22,15 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/garbas/vim-snipmate.git
-[submodule "bundle/snipmate-snippets"]
-	path = bundle/snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
 [submodule "bundle/tlib"]
 	path = bundle/tlib
-	url = https://github.com/tomtom/tlib_vim.git
+	url = git://github.com/tomtom/tlib_vim.git
 [submodule "bundle/tasklist"]
 	path = bundle/tasklist
-	url = https://github.com/vim-scripts/TaskList.vim.git
+	url = git://github.com/vim-scripts/TaskList.vim.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
+	url = git://github.com/godlygeek/tabular.git
+[submodule "bundle/snippets"]
+	path = bundle/snippets
+	url = git://github.com/honza/vim-snippets.git
