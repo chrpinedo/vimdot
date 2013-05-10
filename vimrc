@@ -48,18 +48,14 @@ map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
 " Maps to surfing splitted lines
-vmap <c-h> h
+vmap <c-h> g0
 vmap <c-j> gj
 vmap <c-k> gk
-vmap <c-l> l
-vmap <c-p> g$
-vmap <c-u> g0
-nmap <c-h> h
+vmap <c-l> g$
+nmap <c-h> g0
 nmap <c-j> gj
 nmap <c-k> gk
-nmap <c-l> l
-nmap <c-p> g$
-nmap <c-u> g0
+nmap <c-l> g$
 set showbreak=...
 " Maps of plugins
 " Map TaskList plugin to ,p (pending) to not interfere with Command-T plugin
