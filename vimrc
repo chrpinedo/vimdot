@@ -22,7 +22,7 @@ set backspace=indent,eol,start
 set hidden
 
 "
-" Formating text
+" Basic Formating text
 "
 set ts=4 sts=4 sw=4 noet
 set tw=79
@@ -73,34 +73,45 @@ if has("autocmd")
 	" Configuration for vimrc file
 	autocmd bufwritepost .vimrc source $MYVIMRC
 
-	" Consider *.py and *.pyc files python files
-	autocmd BufNewFile,BufRead *.py,*.pyc setfiletype python
-
-	" Configuration for python files
-	autocmd FileType python setlocal ts=8 sts=4 sw=4 et
-	autocmd FileType python setlocal tw=79
-	if exists('+colorcolumn')
-		autocmd FileType python setlocal colorcolumn=+1
-	endif
-	autocmd FileType python setlocal number
-	autocmd FileType python highlight BadWhitespace ctermbg=red guibg=red
-	autocmd FileType python match BadWhitespace /^\t\+/
-	autocmd FileType python match BadWhitespace /^\s\+$/
-	autocmd FileType python setlocal foldmethod=indent
-	autocmd FileType python setlocal foldlevel=99
-	if filereadable("~/.vim/tags/python/python2.7")
-		autocmd FileTYpe python setlocal tags+=~/.vim/tags/python/python2.7
-	endif
-	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
-	
-	" Configuration for latex files
-	autocmd FileType tex	setlocal encoding=utf-8
-	autocmd FileType tex	setlocal ts=8 sts=2 sw=2 et
-	autocmd FileType tex	setlocal tw=79
+	" Configuration for specific filetypes
+	autocmd FileType mail call FT_mail()
 	autocmd BufNewFile *.tex 0r ~/.vim/skeleton/latex.tex
+	autocmd FileType tex call FT_tex()
+	autocmd BufNewFile,BufRead *.py,*.pyc setfiletype python
+	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
+	autocmd FileType python call FT_python()
 
 	" Autoclose preview window of omnicompletion
 	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 	autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
+
+function! FT_mail()
+	setlocal fileencodings=latin1,iso-8859-15,utf-8
+	setlocal ts=4 sts=4 sw=4 noet
+	setlocal tw=72
+	setlocal spell spelllang=es
+endfunction
+
+function! FT_tex()
+	setlocal ts=2 sts=2 sw=2 noet
+	setlocal tw=79
+endfunction
+
+function! FT_python()
+	setlocal ts=4 sts=4 sw=4 et
+	setlocal tw=79
+	if exists('+colorcolumn')
+		setlocal colorcolumn=+1
+	endif
+	setlocal number
+	highlight BadWhitespace ctermbg=red guibg=red
+	match BadWhitespace /^\t\+/
+	match BadWhitespace /^\s\+$/
+	setlocal foldmethod=indent
+	setlocal foldlevel=99
+	if filereadable("~/.vim/tags/python/python2.7")
+		setlocal tags+=~/.vim/tags/python/python2.7
+	endif
+	setlocal omnifunc=pythoncomplete#Complete
+endfunction
