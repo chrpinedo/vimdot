@@ -57,9 +57,9 @@ nmap <c-j> gj
 nmap <c-k> gk
 nmap <c-l> g$
 set showbreak=...
-" Maps of plugins
-" Map TaskList plugin to ,p (pending) to not interfere with Command-T plugin
-nmap <leader>p <Plug>TaskList
+" Maps and configuration of plugins
+" Configuration of ctrlp plugin
+let g:ctrlp_by_filename = 1
 " Map Gundo plugin
 nnoremap <F5> :GundoToggle<CR>
 
