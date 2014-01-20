@@ -1,9 +1,6 @@
 [submodule "bundle/addon-mw-utils"]
 	path = bundle/addon-mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "bundle/flake8"]
 	path = bundle/flake8
 	url = git://github.com/nvie/vim-flake8.git
