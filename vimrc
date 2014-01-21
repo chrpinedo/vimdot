@@ -80,11 +80,20 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.py,*.pyc setfiletype python
 	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
 	autocmd FileType python call FT_python()
+	autocmd FileType c call FT_C()
 
 	" Autoclose preview window of omnicompletion
 	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 	autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
+
+function DeleteHiddenBuffers()
+	let tpbl=[]
+	call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+	for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+		silent execute 'bwipeout' buf
+	endfor
+endfunction
 
 function! FT_mail()
 	setlocal fileencodings=latin1,iso-8859-15,utf-8
@@ -114,4 +123,13 @@ function! FT_python()
 		setlocal tags+=~/.vim/tags/python/python2.7
 	endif
 	setlocal omnifunc=pythoncomplete#Complete
+endfunction
+
+function! FT_C()
+	setlocal ts=8 sts=4 sw=4 et
+	setlocal tw=120
+	setlocal number
+	setlocal foldmethod=syntax
+	setlocal foldlevel=99
+	setlocal omnifunc=ccomplete#Complete
 endfunction
