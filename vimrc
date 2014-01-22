@@ -61,7 +61,9 @@ set showbreak=...
 " Configuration of ctrlp plugin
 let g:ctrlp_by_filename = 1
 " Map Gundo plugin
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :NERDTreeToggle<CR>
+nnoremap <F6> :TagbarToggle<CR>
+nnoremap <F7> :GundoToggle<CR>
 
 "
 " Filetype dependant configuration:
