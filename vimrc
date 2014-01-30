@@ -122,6 +122,7 @@ function! FT_python()
 	match BadWhitespace /^\s\+$/
 	setlocal foldmethod=indent
 	setlocal foldlevel=99
+	setlocal foldcolumn=1
 	if filereadable("~/.vim/tags/python/python2.7")
 		setlocal tags+=~/.vim/tags/python/python2.7
 	endif
@@ -129,10 +130,11 @@ function! FT_python()
 endfunction
 
 function! FT_C()
-	setlocal ts=8 sts=4 sw=4 et
+	setlocal ts=4 sts=4 sw=4 et
 	setlocal tw=120
 	setlocal number
 	setlocal foldmethod=syntax
 	setlocal foldlevel=99
+	setlocal foldcolumn=1
 	setlocal omnifunc=ccomplete#Complete
 endfunction
