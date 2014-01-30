@@ -83,6 +83,7 @@ if has("autocmd")
 	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
 	autocmd FileType python call FT_python()
 	autocmd FileType c call FT_C()
+	autocmd FileType cpp call FT_C()
 
 	" Autoclose preview window of omnicompletion
 	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
