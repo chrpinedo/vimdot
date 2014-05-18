@@ -108,6 +108,8 @@ endfunction
 function! FT_tex()
 	setlocal ts=2 sts=2 sw=2 noet
 	setlocal tw=79
+	setlocal errorformat=%f:%l:\ %m,%f:%l-%\\d%\\+:\ %m
+	setlocal makeprg=make
 endfunction
 
 function! FT_python()
