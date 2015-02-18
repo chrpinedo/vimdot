@@ -79,7 +79,11 @@ vmap <c-h> g0
 vmap <c-j> gj
 vmap <c-k> gk
 vmap <c-l> g$
-set showbreak=...
+nmap <c-h> g0
+nmap <c-j> gj
+nmap <c-k> gk
+nmap <c-l> g$
+set showbreak=>\ 
 
 "
 " Generic configuration of plugins

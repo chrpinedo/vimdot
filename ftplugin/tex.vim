@@ -1,4 +1,10 @@
-setlocal ts=4 sts=4 sw=4 noet
-setlocal tw=80
+setlocal wrap linebreak nolist
+setlocal tw=0 wm=0
+setlocal formatoptions+=l
+setlocal columns=80
+" If I want to include the number of the lines:
+" setlocal numberwidth=6
+" setlocal columns=86
+" setlocal number
 setlocal errorformat=%f:%l:\ %m,%f:%l-%\\d%\\+:\ %m
 setlocal makeprg=make
