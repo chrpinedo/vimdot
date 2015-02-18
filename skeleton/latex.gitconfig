@@ -1,0 +1,8 @@
+# More information about latexdiff and git in: 
+# https://wiki.math.cmu.edu/iki/wiki/tips/20140301-git-latexdiff.html
+[alias]
+    wdiff = diff --color-words --ignore-all-space
+	ldiff = difftool -y -t latex
+
+[difftool.latex]
+	cmd = latexdiff "$LOCAL" "$REMOTE"

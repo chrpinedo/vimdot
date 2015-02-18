@@ -1,9 +1,53 @@
-execute pathogen#infect()
+"NeoBundle Scripts-----------------------------
+if !1 | finish | endif
 
-set modeline
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-set nocompatible
-set laststatus=2
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('/home/jtbpizac/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+" General plugins
+NeoBundle 'kien/ctrlp.vim', {'directory' : 'ctrlp'}
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'sjl/gundo.vim', {'directory' : 'gundo'}
+NeoBundle 'bling/vim-airline', {'directory' : 'airline'}
+" Git plugins
+NeoBundle 'tpope/vim-fugitive', {'directory' : 'fugitive'}
+" Text plugins
+NeoBundle 'godlygeek/tabular'
+" Programming plugins
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'vim-scripts/TaskList.vim', {'directory' : 'tasklist'}
+" Other plugins to consider: snipmate, pydoc, easytags, ... 
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
+"
+" Generic configuration
+"
+
 set encoding=utf-8
 if (&term =~ "xterm") || (&term =~ "screen")
 	set t_Co=256
@@ -12,131 +56,55 @@ endif
 set bg=dark
 syntax on
 
-set hlsearch
-set incsearch
-set nowrapscan
-
-set history=50
+set hlsearch incsearch nowrapscan
 set backspace=indent,eol,start
-
 set hidden
 
-"
-" Basic Formating text
-"
-set ts=4 sts=4 sw=4 noet
-set tw=79
-set ai
+set ts=4 sts=4 sw=4 noet tw=80 ai
 if executable("par")
-	set formatprg=par\ -w79
+	set formatprg=par\ -w80
 endif
-"
-" Generic Mappings
-"
+
+" Map leader
 let mapleader = ','
 " Map easy access to vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
 " Map to show invisible characters:
-nmap <leader>l :set list!<CR>
+nmap <leader>i :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
-" Maps to easily open new files in subdirectories:
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
 " Maps to surfing splitted lines
 vmap <c-h> g0
 vmap <c-j> gj
 vmap <c-k> gk
 vmap <c-l> g$
-nmap <c-h> g0
-nmap <c-j> gj
-nmap <c-k> gk
-nmap <c-l> g$
 set showbreak=...
-" Maps and configuration of plugins
+
+"
+" Generic configuration of plugins
+"
+
 " Configuration of ctrlp plugin
 let g:ctrlp_by_filename = 1
-" Map Gundo plugin
+" Configuration for airline plugin
+set laststatus=2
+" Generic mappings to plugins
 nnoremap <F5> :NERDTreeToggle<CR>
 nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :GundoToggle<CR>
 
 "
-" Filetype dependant configuration:
+" Configuration autocmd
 "
-if has("autocmd")
-	" Enable filetype detection
-	filetype plugin indent on
 
-	" Configuration for vimrc file
-	autocmd bufwritepost .vimrc source $MYVIMRC
+" apply vim new configuration
+au bufwritepost .vimrc source $MYVIMRC
 
-	" Configuration for specific filetypes
-	autocmd FileType mail call FT_mail()
-	autocmd BufNewFile *.tex 0r ~/.vim/skeleton/latex.tex
-	autocmd FileType tex call FT_tex()
-	autocmd BufNewFile,BufRead *.py,*.pyc setfiletype python
-	autocmd BufNewFile *.py 0r ~/.vim/skeleton/python.py
-	autocmd FileType python call FT_python()
-	autocmd FileType c call FT_C()
-	autocmd FileType cpp call FT_C()
+" skeleton for new files
+au BufNewFile *.tex 0r ~/.vim/skeleton/latex.tex
+au BufNewFile *.py 0r ~/.vim/skeleton/python.py
 
-	" Autoclose preview window of omnicompletion
-	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-	autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-endif
-
-function DeleteHiddenBuffers()
-	let tpbl=[]
-	call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-	for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-		silent execute 'bwipeout' buf
-	endfor
-endfunction
-
-function! FT_mail()
-	setlocal fileencodings=latin1,iso-8859-15,utf-8
-	setlocal ts=4 sts=4 sw=4 noet
-	setlocal tw=72
-	setlocal spell spelllang=es
-endfunction
-
-function! FT_tex()
-	setlocal ts=2 sts=2 sw=2 noet
-	setlocal tw=79
-	setlocal errorformat=%f:%l:\ %m,%f:%l-%\\d%\\+:\ %m
-	setlocal makeprg=make
-endfunction
-
-function! FT_python()
-	setlocal ts=4 sts=4 sw=4 et
-	setlocal tw=79
-	if exists('+colorcolumn')
-		setlocal colorcolumn=+1
-	endif
-	setlocal number
-	highlight BadWhitespace ctermbg=red guibg=red
-	match BadWhitespace /^\t\+/
-	match BadWhitespace /^\s\+$/
-	setlocal foldmethod=indent
-	setlocal foldlevel=99
-	setlocal foldcolumn=1
-	if filereadable("~/.vim/tags/python/python2.7")
-		setlocal tags+=~/.vim/tags/python/python2.7
-	endif
-	setlocal omnifunc=pythoncomplete#Complete
-endfunction
-
-function! FT_C()
-	setlocal ts=4 sts=4 sw=4 et
-	setlocal tw=120
-	setlocal number
-	setlocal foldmethod=syntax
-	setlocal foldlevel=99
-	setlocal foldcolumn=1
-	setlocal omnifunc=ccomplete#Complete
-endfunction
+" bad associations
+au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.tex set filetype=tex
