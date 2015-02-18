@@ -49,11 +49,11 @@ NeoBundleCheck
 "
 
 set encoding=utf-8
+
+colorscheme desert
 if (&term =~ "xterm") || (&term =~ "screen")
 	set t_Co=256
 endif
-
-set bg=dark
 syntax on
 
 set hlsearch incsearch nowrapscan
