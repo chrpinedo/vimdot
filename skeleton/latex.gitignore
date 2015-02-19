@@ -1,0 +1,17 @@
+# Latex temporal files
+*.aux
+*.bbl
+*.blg
+*.log
+*.snm
+*.out
+*.nav
+# Final output
+*.dvi
+*.ps
+*.pdf
+# ViM editor
+*.swp
+*.vim
+# Other editors
+*.backup

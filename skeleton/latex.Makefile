@@ -1,11 +1,10 @@
 .PHONY: clean clean-all
 
 %.pdf: %.tex
-	rubber -f --pdf -s $<
-	rubber-info --check $<
+	rubber -q -s -f --pdf $<
 
 clean:
 	rm -rf *.aux *.bbl *.blg *.log *.toc *.snm *.out *.nav
 
 clean-all:
-	rm -rf *.aux *.bbl *.blg *.log *.toc *.snm *.out *.nav *.pdf
+	rm -rf *.aux *.bbl *.blg *.log *.toc *.snm *.out *.nav *.dvi *.ps *.pdf

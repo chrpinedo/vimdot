@@ -6,5 +6,5 @@ setlocal columns=80
 " setlocal numberwidth=6
 " setlocal columns=86
 " setlocal number
-setlocal errorformat=%f:%l:\ %m,%f:%l-%\\d%\\+:\ %m
+setlocal errorformat+=%f:%l:\ %m
 setlocal makeprg=make
