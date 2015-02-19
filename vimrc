@@ -11,7 +11,7 @@ if has('vim_starting')
 endif
 
 " Required:
-call neobundle#begin(expand('/home/jtbpizac/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
