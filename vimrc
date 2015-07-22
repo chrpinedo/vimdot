@@ -1,5 +1,5 @@
 "NeoBundle Scripts-----------------------------
-if !1 | finish | endif
+if 0 | endif
 
 if has('vim_starting')
   if &compatible
@@ -17,7 +17,7 @@ call neobundle#begin(expand('~/.vim/bundle'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Add or remove your Bundles here:
+" My Bundles here:
 " General plugins
 NeoBundle 'kien/ctrlp.vim', {'directory' : 'ctrlp'}
 NeoBundle 'scrooloose/nerdtree'
