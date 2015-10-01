@@ -104,11 +104,3 @@ nnoremap <F7> :GundoToggle<CR>
 
 " apply vim new configuration
 au bufwritepost .vimrc source $MYVIMRC
-
-" skeleton for new files
-au BufNewFile *.tex 0r ~/.vim/skeleton/latex.tex
-au BufNewFile *.py 0r ~/.vim/skeleton/python.py
-
-" bad associations
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.tex set filetype=tex
