@@ -60,7 +60,7 @@ set hlsearch incsearch nowrapscan
 set backspace=indent,eol,start
 set hidden
 
-set ts=4 sts=4 sw=4 noet tw=80 ai
+set ts=8 sts=4 sw=4 noet tw=80 ai
 if executable("par")
 	set formatprg=par\ -w80
 endif
