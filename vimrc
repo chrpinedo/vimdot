@@ -1,48 +1,21 @@
-"NeoBundle Scripts-----------------------------
-if 0 | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
+"begin of vim-plug-------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
 " General plugins
-NeoBundle 'kien/ctrlp.vim', {'directory' : 'ctrlp'}
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'sjl/gundo.vim', {'directory' : 'gundo'}
-NeoBundle 'bling/vim-airline', {'directory' : 'airline'}
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'sjl/gundo.vim'
+Plug 'bling/vim-airline'
 " Git plugins
-NeoBundle 'tpope/vim-fugitive', {'directory' : 'fugitive'}
+Plug 'tpope/vim-fugitive'
 " Text plugins
-NeoBundle 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 " Programming plugins
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'vim-scripts/TaskList.vim', {'directory' : 'tasklist'}
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/TaskList.vim'
+Plug 'scrooloose/syntastic'
 " Other plugins to consider: snipmate, pydoc, easytags, ... 
-
-" Required:
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+call plug#end()
+"end of vim-plug---------------------------------------------------------------
 
 "
 " Generic configuration

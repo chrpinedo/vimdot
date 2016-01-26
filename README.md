@@ -18,4 +18,7 @@ Installation on GNU/Linux. Caution! it deletes a previous vim configuration.
 	git clone git://github.com/chrpinedo/vimdot ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc
 	ln -s ~/.vim/gvimrc ~/.gvimrc
-	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+
+Run vim and install plugin with vim-plug:
+
+	:PlugInstall
