@@ -18,22 +18,44 @@ call plug#end()
 "end of vim-plug---------------------------------------------------------------
 
 "
+" Configure vim with nvim default configuration
+" nvim version 0.1.2-dev
+"
+if !has('nvim')
+    set autoindent
+    set autoread
+    set backspace="indent,eol,start"
+    set complete-=i
+    set display=lastline
+    set encoding=utf-8
+    set formatoptions="tcqj"
+    set history=10000
+    set hlsearch
+    set incsearch
+    set langnoremap
+    set laststatus=2
+    set listchars="tab:> ,trail:-,nbsp:+"
+    set mouse=a
+    set nocompatible
+    set nrformats=hex
+    set sessionoptions-=options
+    set smarttab
+    set tabpagemax=50
+    set tags="./tags;,tags"
+    set ttyfast
+    set viminfo+=!
+    set wildmenu
+endif
+
+"
 " Generic configuration
 "
-
-set encoding=utf-8
-
 colorscheme desert
-if (&term =~ "xterm") || (&term =~ "screen")
-	set t_Co=256
-endif
 syntax on
-
-set hlsearch incsearch nowrapscan
-set backspace=indent,eol,start
+set nowrapscan
 set hidden
 
-set ts=8 sts=4 sw=4 noet tw=80 ai
+set ts=8 sts=4 sw=4 tw=80
 if executable("par")
 	set formatprg=par\ -w80
 endif
@@ -44,7 +66,6 @@ let mapleader = ','
 nmap <leader>v :tabedit $MYVIMRC<CR>
 " Map to show invisible characters:
 nmap <leader>i :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 " Maps to surfing splitted lines
@@ -64,8 +85,6 @@ set showbreak=>\
 
 " Configuration of ctrlp plugin
 let g:ctrlp_by_filename = 1
-" Configuration for airline plugin
-set laststatus=2
 " Generic mappings to plugins
 nnoremap <F5> :NERDTreeToggle<CR>
 nnoremap <F6> :TagbarToggle<CR>
