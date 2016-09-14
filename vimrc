@@ -7,7 +7,8 @@ endif
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Git plugins
 Plug 'tpope/vim-fugitive'
 " Text plugins
