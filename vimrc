@@ -1,6 +1,9 @@
 "begin of vim-plug-------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 " General plugins
+if !has('nvim')
+    Plug 'noahfrederick/vim-neovim-defaults'
+endif
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
@@ -12,52 +15,23 @@ Plug 'godlygeek/tabular'
 " Programming plugins
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/TaskList.vim'
-Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim'
+endif
 " Other plugins to consider: snipmate, pydoc, easytags, ... 
 call plug#end()
 "end of vim-plug---------------------------------------------------------------
 
 "
-" Configure vim with nvim default configuration
-" nvim version 0.1.2-dev
-"
-if !has('nvim')
-    set autoindent
-    set autoread
-    set backspace="indent,eol,start"
-    set complete-=i
-    set display=lastline
-    set encoding=utf-8
-    set formatoptions="tcqj"
-    set history=10000
-    set hlsearch
-    set incsearch
-    set langnoremap
-    set laststatus=2
-    set listchars="tab:> ,trail:-,nbsp:+"
-    set mouse=a
-    set nocompatible
-    set nrformats=hex
-    set sessionoptions-=options
-    set smarttab
-    set tabpagemax=50
-    set tags="./tags;,tags"
-    set ttyfast
-    set viminfo+=!
-    set wildmenu
-endif
-
-"
 " Generic configuration
 "
 colorscheme desert
-syntax on
-set nowrapscan
 set hidden
 
 set ts=8 sts=4 sw=4 tw=80
 if executable("par")
-	set formatprg=par\ -w80
+    set formatprg=par\ -w80
 endif
 
 " Map leader
