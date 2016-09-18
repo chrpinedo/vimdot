@@ -1,33 +1,28 @@
 "begin of vim-plug-------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
-" General plugins
-if !has('nvim')
-    Plug 'noahfrederick/vim-neovim-defaults'
-endif
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'sjl/gundo.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Git plugins
-Plug 'tpope/vim-fugitive'
-" Text plugins
-Plug 'godlygeek/tabular'
-" Programming plugins
-Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/TaskList.vim'
-Plug 'neomake/neomake'
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim'
-endif
-" Other plugins to consider: snipmate, pydoc, easytags, ... 
+call plug#begin('~/.config/nvim/plugged')
+    " General plugins
+    Plug 'kien/ctrlp.vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    " Programming plugins
+    Plug 'tpope/vim-fugitive'
+    Plug 'neomake/neomake'
+    Plug 'Valloric/YouCompleteMe'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    " Specific defaults for vim
+    if !has('nvim')
+	Plug 'noahfrederick/vim-neovim-defaults'
+    endif
 call plug#end()
 "end of vim-plug---------------------------------------------------------------
 
 "
-" Generic configuration
+" Default configuration
 "
-colorscheme desert
+colorscheme delek
+
 set hidden
 
 set ts=8 sts=4 sw=4 tw=80
@@ -58,12 +53,13 @@ set showbreak=>\
 " Generic configuration of plugins
 "
 
-" Configuration of ctrlp plugin
 let g:ctrlp_by_filename = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Generic mappings to plugins
 nnoremap <F5> :NERDTreeToggle<CR>
-nnoremap <F6> :TagbarToggle<CR>
-nnoremap <F7> :GundoToggle<CR>
 
 "
 " Configuration autocmd
