@@ -19,8 +19,9 @@ call plug#end()
 "end of vim-plug---------------------------------------------------------------
 
 "
-" Default configuration
+" Configuration of colorscheme and airline theme
 "
+
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -44,21 +45,27 @@ endif
 colorscheme onedark
 let g:airline_theme='onedark'
 
+"
+" Configuration of neovim/vim
+"
 set hidden
 
 set ts=8 sts=4 sw=4 tw=80
-if executable("par")
-    set formatprg=par\ -w80
-endif
 
 " Map leader
 let mapleader = ','
-" Map easy access to vimrc
-nmap <leader>v :tabedit $MYVIMRC<CR>
+" Map easy access and modify configuration of neovim/vim
+if (has("nvim"))
+    nnoremap <leader>ve :tabedit ~/.config/nvim/init.vim<CR>
+    nnoremap <leader>vs :source ~/.config/nvim/init.vim<CR>
+else
+    nnoremap <leader>ve :tabedit $MYVIMRC<CR>
+    nnoremap <leader>vs :source $MYVIMRC<CR>
+endif
 " Map to show invisible characters:
-nmap <leader>i :set list!<CR>
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
+nnoremap <leader>i :set list!<CR>
+highlight NonText guifg=#666666
+highlight SpecialKey guifg=#666666
 " Maps to surfing splitted lines
 vmap <c-h> g0
 vmap <c-j> gj
@@ -71,20 +78,11 @@ nmap <c-l> g$
 set showbreak=>\ 
 
 "
-" Generic configuration of plugins
+" Configuration of plugins
 "
-
-let g:ctrlp_by_filename = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
+set completeopt-=preview
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Generic mappings to plugins
 nnoremap <F5> :NERDTreeToggle<CR>
-
-"
-" Configuration autocmd
-"
-
-" apply vim new configuration
-au bufwritepost .vimrc source $MYVIMRC

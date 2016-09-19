@@ -8,7 +8,3 @@ match BadWhitespace /^\s\+$/
 setlocal foldmethod=indent
 setlocal foldlevel=99
 setlocal foldcolumn=1
-"if filereadable("~/.vim/tags/python/python2.7")
-"	setlocal tags+=~/.vim/tags/python/python2.7
-"endif
-"setlocal omnifunc=pythoncomplete#Complete
