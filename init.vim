@@ -7,7 +7,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'joshdick/onedark.vim'
     " Programming plugins
     Plug 'tpope/vim-fugitive'
-    Plug 'neomake/neomake'
     Plug 'Valloric/YouCompleteMe'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
