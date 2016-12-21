@@ -52,9 +52,9 @@ set hidden
 set ts=8 sts=4 sw=4 tw=80
 
 " Map leader
-let mapleader = ','
+let mapleader = "\<Space>"
 " Map easy access and modify configuration of neovim/vim
-nnoremap <leader>ve :tabedit ~/.vim/vimrc<CR>
+nnoremap <leader>ve :tabedit ~/.vim/vimrc<CR>:cd ~/.vim<CR>
 nnoremap <leader>vs :source ~/.vim/vimrc<CR>
 " Map to show invisible characters:
 nnoremap <leader>i :set list!<CR>
