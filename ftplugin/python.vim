@@ -1,5 +1,5 @@
 setlocal ts=4 sts=4 sw=4 et
-setlocal tw=80
+setlocal tw=79
 setlocal colorcolumn=+1
 setlocal number
 highlight BadWhitespace ctermbg=red guibg=red

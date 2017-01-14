@@ -8,5 +8,4 @@ augroup filetypedetect
 	au BufRead,BufNewFile *.tex set filetype=tex
 	" skeleton for new files
 	au BufNewFile *.tex 0r ~/.vim/skeleton/latex.tex
-	au BufNewFile *.py 0r ~/.vim/skeleton/python.py
 augroup END
