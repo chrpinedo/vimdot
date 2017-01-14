@@ -39,10 +39,23 @@ if (empty($TMUX))
 else
   " Inside tmux (this is for a tmux version less than 2.2)
   set notermguicolors
-  let g:onedark_termcolors=16
+  let g:onedark_termcolors=16 
 endif
 colorscheme onedark
 let g:airline_theme='onedark'
+" colors for special characters of 'set list!'
+highlight NonText guifg=#666666
+highlight SpecialKey guifg=#666666
+
+"
+" Configuration of plugins
+"
+" a bit annoying to have a description in the preview window for every selection
+" in ommicompletion, remove preview
+set completeopt-=preview
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "
 " Configuration of neovim/vim
@@ -51,25 +64,37 @@ set hidden
 
 set ts=8 sts=4 sw=4 tw=80
 
+"
+" Configuration of mappings to have a Spacemacs-like behaviour
+"
 " Map leader
 let mapleader = "\<Space>"
-" Map easy access and modify configuration of neovim/vim
+" Map of vim configuration and usage
 nnoremap <leader>ve :tabedit ~/.vim/vimrc<CR>:cd ~/.vim<CR>
 nnoremap <leader>vs :source ~/.vim/vimrc<CR>
-" Map to show invisible characters:
-nnoremap <leader>i :set list!<CR>
-highlight NonText guifg=#666666
-highlight SpecialKey guifg=#666666
-" Maps to surfing splitted lines
-vmap <c-h> g0
-vmap <c-j> gj
-vmap <c-k> gk
-vmap <c-l> g$
-nmap <c-h> g0
-nmap <c-j> gj
-nmap <c-k> gk
-nmap <c-l> g$
-set showbreak=>\ 
+" Map of file commands
+nnoremap <leader>ft :NERDTreeToggle<CR>
+nnoremap <leader>ff :CtrlP<CR>
+nnoremap <leader>fr :CtrlPMRU<CR>
+nnoremap <leader>fw :w<CR>
+" Map of buffer commands
+nnoremap <leader>bb :CtrlPBuffer<CR>
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprevious<CR>
+nnoremap <leader>bd :bdelete<CR>
+" show invisible characters of the buffer:
+nnoremap <leader>bi :setlocal list!<CR> 
+" Map of tab commands
+nnoremap <leader>tc :tabnew<CR>
+nnoremap <leader>td :tabclose<CR>
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tN :tabNext<CR>
+nnoremap <leader>tp :tabprevious<CR>
+" Map of window commands
+nnoremap <leader>w <c-w>
+" Map of completion
+nnoremap <leader>cg :YcmCompleter GoTo<CR>
+nnoremap <leader>cd :YcmCompleter GetDoc<CR>
 
 "
 " Configuration of plugins
@@ -78,5 +103,3 @@ set completeopt-=preview
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" Generic mappings to plugins
-nnoremap <F5> :NERDTreeToggle<CR>
