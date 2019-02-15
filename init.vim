@@ -1,7 +1,10 @@
 "begin of vim-plug-------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
     " General plugins
-    Plug 'kien/ctrlp.vim'
+    Plug '/usr/bin/fzf'
+    Plug 'junegunn/fzf.vim'
+    " Ctrlp como alternativa a fzf si no esta disponible:
+    "Plug 'kien/ctrlp.vim'
     Plug 'scrooloose/nerdtree'
     Plug 'myusuf3/numbers.vim'
     Plug 'vim-airline/vim-airline'
@@ -86,11 +89,15 @@ nnoremap <leader>ve :tabedit ~/.config/nvim/init.vim<CR>:cd ~/.config/nvim<CR>
 nnoremap <leader>vs :source ~/.config/nvim/init.vim<CR>
 " Map of file commands
 nnoremap <leader>ft :NERDTreeToggle<CR>
-nnoremap <leader>ff :CtrlP<CR>
-nnoremap <leader>fr :CtrlPMRU<CR>
+nnoremap <leader>ff :Files<CR>
+" Ctrlp como alternativa a fzf si no esta disponible:
+"nnoremap <leader>ff :CtrlP<CR>
+"nnoremap <leader>fr :CtrlPMRU<CR>
 nnoremap <leader>fw :w<CR>
 " Map of buffer commands
-nnoremap <leader>bb :CtrlPBuffer<CR>
+nnoremap <leader>bb :Buffers<CR>
+" Ctrlp como alternativa a fzf si no esta disponible:
+"nnoremap <leader>bb :CtrlPBuffer<CR>
 nnoremap <leader>bn :bnext<CR>
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>bd :bdelete<CR>
