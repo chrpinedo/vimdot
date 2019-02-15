@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+    Plug 'PProvost/vim-ps1'
     " Specific defaults for vim
     if !has('nvim')
 	Plug 'noahfrederick/vim-neovim-defaults'
